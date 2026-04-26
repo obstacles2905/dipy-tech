@@ -1,28 +1,41 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --accent: #0e7490;
-  --accent-hover: #155e75;
-  --surface: #ffffff;
-  --border: #e2e8f0;
-  --ring: #0e7490;
+  --accent-gold: #c9a227;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-surface: var(--surface);
-  --color-border: var(--border);
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  @apply min-h-screen font-sans antialiased transition-colors duration-300;
+  @apply bg-lab-page text-lab-ink;
+  background-image: radial-gradient(
+      ellipse 120% 70% at 50% -15%,
+      rgba(24, 24, 27, 0.06),
+      transparent 50%
+    ),
+    linear-gradient(180deg, #f4f4f5 0%, #fafafa 45%, #f4f4f5 100%);
+}
+
+html.dark body {
+  @apply bg-obsidian text-titanium;
+  background-image: radial-gradient(
+      ellipse 120% 80% at 50% -20%,
+      rgba(201, 162, 39, 0.06),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 80% 50% at 100% 50%,
+      rgba(200, 204, 212, 0.04),
+      transparent 45%
+    ),
+    linear-gradient(180deg, #0a0c10 0%, #0d1016 40%, #0a0c10 100%);
+}
+
+::selection {
+  @apply bg-amber-highlight/25 text-zinc-900 dark:text-titanium-bright;
 }

@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
+import { AppProviders } from "@/components/providers/app-providers";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-sans",
+const inter = Inter({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  variable: "--font-montserrat",
+  display: "swap",
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Ручний монтаж плат | B2B послуги",
+  title: "ProfTechnology — Преміальна електронна збірка",
   description:
-    "SMD, THT, двосторонній та комбінований монтаж. Контроль якості за IPC, відмивання, захисні покриття. Для бізнесу з фокусом на надійність та стандарти.",
-  openGraph: {
-    title: "Ручний монтаж плат — професійні B2B послуги",
-    description:
-      "Монтаж плат, контроль якості, термінові замовлення та малі партії.",
-    locale: "uk_UA",
-    type: "website",
-  },
+    "Бутикова платформа та сервіс ручного монтажу. SMD, THT, контроль якості, преміальна ручна збірка.",
 };
 
 export default function RootLayout({
@@ -27,8 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk" className={`${plusJakarta.variable} h-full scroll-smooth antialiased`}>
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+    <html lang="uk" className={`${inter.variable} ${montserrat.variable}`} suppressHydrationWarning>
+      <body className="min-h-screen">
+        <AppProviders>{children}</AppProviders>
+      </body>
     </html>
   );
 }

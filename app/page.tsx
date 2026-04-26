@@ -1,23 +1,21 @@
-import { SiteFooter } from "@/components/SiteFooter";
-import { SiteHeader } from "@/components/SiteHeader";
-import { ContactSection } from "@/components/sections/ContactSection";
-import { Extras } from "@/components/sections/Extras";
-import { Gallery } from "@/components/sections/Gallery";
-import { Hero } from "@/components/sections/Hero";
-import { QualityTiers } from "@/components/sections/QualityTiers";
-import { Services } from "@/components/sections/Services";
+import { SiteHeader } from "@/components/landing/site-header";
+import { HeroSection } from "@/components/landing/hero-section";
+import { ServicesSection } from "@/components/landing/services-section";
+import { VipSection } from "@/components/landing/vip-section";
+import { GallerySection } from "@/components/landing/gallery-section";
+import { QualityPassportSection } from "@/components/landing/quality-passport-section";
+import { SiteFooter } from "@/components/landing/site-footer";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <SiteHeader />
-      <main className="flex-1">
-        <Hero />
-        <Services />
-        <QualityTiers />
-        <Extras />
-        <Gallery />
-        <ContactSection />
+      <main>
+        <HeroSection />
+        <ServicesSection />
+        <VipSection />
+        <GallerySection />
+        <QualityPassportSection />
       </main>
       <SiteFooter />
     </>
