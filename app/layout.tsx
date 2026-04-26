@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   variable: "--font-sans",
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700"],
 });
 
@@ -27,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk" className={`${plusJakarta.variable} h-full scroll-smooth antialiased`}>
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+    <html lang="uk" className={`${inter.variable} h-full bg-background`}>
+      <body className="min-h-full flex flex-col font-sans antialiased">{children}</body>
     </html>
   );
 }

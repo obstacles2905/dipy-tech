@@ -3,7 +3,7 @@
 import { useCallback, useState } from "react";
 
 const tiers = [
-  { value: "", label: "Оберіть рівень (необовʼязково)" },
+  { value: "", label: "Оберіть рівень" },
   { value: "standard", label: "Standard" },
   { value: "pro", label: "Pro" },
   { value: "premium", label: "Premium" },
@@ -44,45 +44,67 @@ export function QuoteForm() {
   }, []);
 
   const inputClass =
-    "mt-1 w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-foreground outline-none ring-accent/0 transition-shadow focus:ring-2 focus:ring-accent/30";
+    "w-full rounded-xl border-0 bg-surface px-4 py-3 text-foreground placeholder:text-muted/60 ring-1 ring-border/60 outline-none transition-all focus:ring-2 focus:ring-accent/40";
 
   return (
-    <div className="rounded-2xl border border-border bg-surface p-6 shadow-sm sm:p-8">
-      <h3 className="text-lg font-semibold text-foreground">Форма заявки</h3>
-      <p className="mt-1 text-sm text-muted">
-        До 4 файлів, до ~1,5 МБ кожен (обмеження безпеки хостингу). Великі архіви —
-        краще посиланням у повідомленні.
-      </p>
-      <form className="mt-6 space-y-4" onSubmit={onSubmit}>
+    <div className="rounded-2xl bg-surface p-6 ring-1 ring-border/60 sm:p-8">
+      <form className="space-y-5" onSubmit={onSubmit}>
         <div>
-          <label htmlFor="company" className="text-sm font-medium text-foreground">
-            Компанія <span className="text-red-600">*</span>
+          <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
+            Компанія <span className="text-accent">*</span>
           </label>
-          <input id="company" name="company" required className={inputClass} />
+          <input 
+            id="company" 
+            name="company" 
+            required 
+            className={inputClass}
+            placeholder="Назва компанії"
+          />
         </div>
-        <div className="grid gap-4 sm:grid-cols-2">
+        
+        <div className="grid gap-5 sm:grid-cols-2">
           <div>
-            <label htmlFor="contactName" className="text-sm font-medium text-foreground">
-              Контактна особа <span className="text-red-600">*</span>
+            <label htmlFor="contactName" className="block text-sm font-medium text-foreground mb-2">
+              Контактна особа <span className="text-accent">*</span>
             </label>
-            <input id="contactName" name="contactName" required className={inputClass} />
+            <input 
+              id="contactName" 
+              name="contactName" 
+              required 
+              className={inputClass}
+              placeholder="Ваше ім'я"
+            />
           </div>
           <div>
-            <label htmlFor="email" className="text-sm font-medium text-foreground">
-              Email <span className="text-red-600">*</span>
+            <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+              Email <span className="text-accent">*</span>
             </label>
-            <input id="email" name="email" type="email" required className={inputClass} />
+            <input 
+              id="email" 
+              name="email" 
+              type="email" 
+              required 
+              className={inputClass}
+              placeholder="email@company.com"
+            />
           </div>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2">
+        
+        <div className="grid gap-5 sm:grid-cols-2">
           <div>
-            <label htmlFor="phone" className="text-sm font-medium text-foreground">
+            <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
               Телефон
             </label>
-            <input id="phone" name="phone" type="tel" className={inputClass} />
+            <input 
+              id="phone" 
+              name="phone" 
+              type="tel" 
+              className={inputClass}
+              placeholder="+380"
+            />
           </div>
           <div>
-            <label htmlFor="qualityTier" className="text-sm font-medium text-foreground">
+            <label htmlFor="qualityTier" className="block text-sm font-medium text-foreground mb-2">
               Рівень якості
             </label>
             <select id="qualityTier" name="qualityTier" className={inputClass}>
@@ -94,20 +116,22 @@ export function QuoteForm() {
             </select>
           </div>
         </div>
+        
         <div>
-          <label htmlFor="message" className="text-sm font-medium text-foreground">
+          <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
             Повідомлення
           </label>
           <textarea
             id="message"
             name="message"
             rows={4}
-            className={`${inputClass} resize-y min-h-[120px]`}
-            placeholder="Кількість плат, терміни, посилання на файли…"
+            className={`${inputClass} resize-none`}
+            placeholder="Кількість плат, терміни, особливі вимоги..."
           />
         </div>
+        
         <div>
-          <label htmlFor="files" className="text-sm font-medium text-foreground">
+          <label htmlFor="files" className="block text-sm font-medium text-foreground mb-2">
             Файли
           </label>
           <input
@@ -115,23 +139,28 @@ export function QuoteForm() {
             name="files"
             type="file"
             multiple
-            className="mt-1 block w-full text-sm text-muted file:mr-4 file:rounded-lg file:border-0 file:bg-accent file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-accent-hover"
+            className="block w-full text-sm text-muted file:mr-4 file:rounded-full file:border-0 file:bg-accent file:px-5 file:py-2.5 file:text-sm file:font-medium file:text-white file:cursor-pointer hover:file:bg-accent-hover file:transition-colors"
           />
+          <p className="mt-2 text-xs text-muted">До 4 файлів, до 1.5 МБ кожен</p>
         </div>
-        {feedback ? (
+        
+        {feedback && (
           <p
-            className={`text-sm ${status === "success" ? "text-emerald-700" : status === "error" ? "text-red-600" : "text-muted"}`}
+            className={`text-sm font-medium ${
+              status === "success" ? "text-green-600" : status === "error" ? "text-red-600" : "text-muted"
+            }`}
             role="status"
           >
             {feedback}
           </p>
-        ) : null}
+        )}
+        
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full rounded-xl bg-accent py-3 text-base font-semibold text-white transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:px-10"
+          className="w-full rounded-full bg-accent py-3.5 text-sm font-medium text-white transition-all hover:bg-accent-hover hover:scale-[1.01] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:px-8"
         >
-          {status === "loading" ? "Відправка…" : "Надіслати заявку"}
+          {status === "loading" ? "Відправка..." : "Надіслати заявку"}
         </button>
       </form>
     </div>

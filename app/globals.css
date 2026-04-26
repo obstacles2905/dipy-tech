@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --accent: #0e7490;
-  --accent-hover: #155e75;
-  --surface: #ffffff;
-  --border: #e2e8f0;
-  --ring: #0e7490;
+  --background: #ffffff;
+  --foreground: #1d1d1f;
+  --muted: #86868b;
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+  --surface: #fbfbfd;
+  --surface-elevated: #ffffff;
+  --border: #d2d2d7;
+  --ring: #0071e3;
 }
 
 @theme inline {
@@ -18,11 +19,22 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
   --color-border: var(--border);
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba(0, 113, 227, 0.2);
 }

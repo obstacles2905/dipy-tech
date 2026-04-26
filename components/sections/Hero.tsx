@@ -4,53 +4,62 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden border-b border-border bg-gradient-to-b from-slate-50 to-background"
+      className="relative overflow-hidden bg-background"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 20% 20%, rgb(14 116 144 / 0.15), transparent 45%),
-            radial-gradient(circle at 80% 60%, rgb(15 23 42 / 0.08), transparent 40%)`,
-        }}
-        aria-hidden
-      />
-      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-        <p className="mb-4 inline-flex rounded-full border border-border bg-surface px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
-          B2B · Надійність · Стандарти
+      <div className="mx-auto max-w-[980px] px-4 pt-20 pb-16 text-center sm:pt-28 sm:pb-20 lg:px-0">
+        <p className="mb-4 text-sm font-medium text-accent">
+          B2B Послуги
         </p>
-        <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-          Ручний монтаж плат для вашого виробництва
+        <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          Ручний монтаж плат
+          <br />
+          <span className="bg-gradient-to-r from-foreground to-muted bg-clip-text text-transparent">
+            для вашого виробництва
+          </span>
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+        <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
           Працюємо з бізнесом, якому важлива якість збірки, повторюваність процесів і
-          відповідність міжнародним вимогам — від прототипів до серійних партій.
+          відповідність міжнародним вимогам.
         </p>
-        <div className="mt-10 flex flex-wrap gap-4">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="#contact"
-            className="inline-flex items-center justify-center rounded-xl bg-accent px-6 py-3 text-base font-semibold text-white shadow-lg shadow-cyan-900/10 transition-colors hover:bg-accent-hover"
+            className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-sm font-medium text-white transition-all hover:bg-accent-hover hover:scale-[1.02] active:scale-[0.98]"
           >
             Надіслати заявку
           </Link>
           <Link
             href="#quality"
-            className="inline-flex items-center justify-center rounded-xl border border-border bg-surface px-6 py-3 text-base font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-slate-50"
+            className="inline-flex items-center justify-center rounded-full bg-transparent px-7 py-3 text-sm font-medium text-accent transition-opacity hover:opacity-70"
           >
-            Рівні якості
+            Дізнатися більше
+            <svg className="ml-1 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
           </Link>
         </div>
-        <dl className="mt-16 grid gap-8 sm:grid-cols-3">
-          {[
-            { k: "IPC", v: "контроль за стандартами" },
-            { k: "SMD + THT", v: "комбіновані рішення" },
-            { k: "24–48 год", v: "термінові замовлення" },
-          ].map((item) => (
-            <div key={item.k} className="rounded-2xl border border-border bg-surface/80 p-5">
-              <dt className="text-2xl font-bold text-foreground">{item.k}</dt>
-              <dd className="mt-1 text-sm text-muted">{item.v}</dd>
-            </div>
-          ))}
-        </dl>
+      </div>
+
+      {/* Stats Section */}
+      <div className="border-t border-border/50 bg-surface">
+        <div className="mx-auto max-w-[980px] px-4 py-12 lg:px-0">
+          <dl className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+            {[
+              { value: "IPC", label: "Контроль за стандартами" },
+              { value: "SMD + THT", label: "Комбіновані рішення" },
+              { value: "24-48 год", label: "Термінові замовлення" },
+            ].map((item) => (
+              <div key={item.value} className="text-center">
+                <dt className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                  {item.value}
+                </dt>
+                <dd className="mt-2 text-sm text-muted">
+                  {item.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </div>
     </section>
   );
