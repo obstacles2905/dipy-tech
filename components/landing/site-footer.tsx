@@ -24,7 +24,7 @@ export function SiteFooter() {
           </div>
           <div className="min-w-0 space-y-6 lg:max-w-md">
             <a
-              href="mailto:admin@example.com"
+              href="mailto:dipytechnology@gmail.com"
               className="flex items-start gap-3 text-sm text-lab-muted transition hover:text-lab-ink dark:text-titanium-dim dark:hover:text-titanium-bright"
             >
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-amber-highlight" aria-hidden />
@@ -32,7 +32,7 @@ export function SiteFooter() {
                 <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-400 dark:text-titanium-dim/80">
                   Електронна пошта
                 </span>
-                admin@example.com
+                dipytechnology@gmail.com
               </span>
             </a>
             <div className="flex items-start gap-3 text-sm text-lab-muted dark:text-titanium-dim">
