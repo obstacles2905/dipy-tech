@@ -17,9 +17,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "ProfTechnology — Преміальна електронна збірка",
+  title: "DipyTech — електронна збірка та монтаж",
   description:
-    "Бутикова платформа та сервіс ручного монтажу. SMD, THT, контроль якості, преміальна ручна збірка.",
+    "SMD/THT, контроль якості, кабельна продукція та корпус. DipyTech — монтаж і супутні процеси.",
 };
 
 export default function RootLayout({

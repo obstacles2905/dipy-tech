@@ -7,7 +7,7 @@ import { ComplianceBadges } from "@/components/trust/compliance-badges";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[92vh] pt-28 lg:pt-32">
+    <section className="relative min-h-[92vh] pt-28 pb-24 md:pb-32 lg:pt-32">
       <div className="pointer-events-none absolute inset-0 bg-grain-soft opacity-40" />
       <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6 lg:flex-row lg:items-end lg:gap-16 lg:px-8">
         <div className="flex-1 space-y-8 pb-8 lg:pb-16">

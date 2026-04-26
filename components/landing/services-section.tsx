@@ -13,48 +13,13 @@ import {
 import { ComplianceBadges } from "@/components/trust/compliance-badges";
 
 const services = [
-  {
-    title: "SMD-монтаж (автоматизований та ручний)",
-    description:
-      "Мінімалістична презентація процесу: точне розміщення за технологічними картами та ручне доопрацювання критичних вузлів.",
-    icon: CircuitBoard,
-  },
-  {
-    title: "Двосторонній SMD-монтаж",
-    description:
-      "Повний цикл з контролем планарності та послідовності операцій без зайвого навантаження на ланцюг постачання.",
-    icon: Layers,
-  },
-  {
-    title: "Змішаний монтаж (SMD + THT)",
-    description:
-      "Гібридні плати з поверхневими та навісними компонентами з акцентом на механічну надійність з'єднань.",
-    icon: Combine,
-  },
-  {
-    title: "Професійне миття плат",
-    description:
-      "Видалення флюсу та залишків відповідно до вимог наступних етапів — у т.ч. перед лакуванням.",
-    icon: Droplets,
-  },
-  {
-    title: "Conformal coating",
-    description:
-      "Захист від вологи та агресивних середовищ з дотриманням зон конекторів і критичних контактних майданчиків.",
-    icon: Shield,
-  },
-  {
-    title: "Box build",
-    description:
-      "Фінальна збірка в корпусі: кріплення, електромеханіка, перевірка готовності до відвантаження.",
-    icon: Box,
-  },
-  {
-    title: "Кабелі та жгути",
-    description:
-      "Силові та сигнальні комплекти з каліброваними довжинами та промисловим обжимом.",
-    icon: Cable,
-  },
+  { title: "SMD монтаж", icon: CircuitBoard },
+  { title: "Двосторонній монтаж", icon: Layers },
+  { title: "Комбінований монтаж (SMD + THT)", icon: Combine },
+  { title: "Відмивання плат", icon: Droplets },
+  { title: "Захисне покриття", icon: Shield },
+  { title: "Монтаж у корпус", icon: Box },
+  { title: "Кабельно-джгутова продукція", icon: Cable },
 ] as const;
 
 const container = {
@@ -79,22 +44,14 @@ export function ServicesSection() {
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.28em] text-amber-highlight/90">
-            Технологічний спектр
+            Послуги
           </p>
           <h2 className="font-display mt-4 text-3xl font-light tracking-tight text-lab-ink dark:text-titanium-bright md:text-4xl">
-            Послуги монтажу та збірки
+            Монтаж і супутні процеси
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-lab-muted dark:text-titanium-dim md:text-base">
-            Лаконічний огляд можливостей: від SMD/THT до захисних покриттів. Процеси
-            узгоджуються з адміністратором проєкту та вашими внутрішніми стандартами.
-          </p>
-        </div>
-
-        <div className="mt-10 rounded-xl border border-zinc-200 bg-white/70 p-6 dark:border-titanium/10 dark:bg-obsidian-soft/50">
-          <ComplianceBadges />
-          <p className="mt-4 text-xs leading-relaxed text-lab-muted dark:text-titanium-dim">
-            Сертифікація персоналу та обладнання ведеться згідно з вимогами IPC. Деталі
-            надаються на етапі NDA та технічного аудиту.
+            Збірка плат, захист, кабельна продукція та корпус — деталізацію погоджуйте
+            з адміністратором під конкретне ТЗ.
           </p>
         </div>
 
@@ -103,28 +60,40 @@ export function ServicesSection() {
           initial={false}
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
           {services.map((service) => (
             <motion.li
               key={service.title}
               variants={item}
-              className="group flex flex-col rounded-sm border border-zinc-200 bg-white/80 p-6 shadow-sm transition hover:border-zinc-300 dark:border-titanium/10 dark:bg-obsidian-soft/60 dark:shadow-[inset_0_1px_0_rgba(232,234,239,0.04)] dark:hover:border-titanium/20"
+              className="group flex min-h-[88px] flex-col justify-center rounded-sm border border-zinc-200 bg-white/80 p-5 shadow-sm transition hover:border-zinc-300 dark:border-titanium/10 dark:bg-obsidian-soft/60 dark:shadow-[inset_0_1px_0_rgba(232,234,239,0.04)] dark:hover:border-titanium/20"
             >
-              <service.icon
-                className="h-5 w-5 text-amber-highlight/85 transition group-hover:text-amber-glow"
-                strokeWidth={1.25}
-                aria-hidden
-              />
-              <h3 className="mt-5 text-sm font-medium leading-snug text-lab-ink dark:text-titanium-bright">
-                {service.title}
-              </h3>
-              <p className="mt-3 flex-1 text-xs leading-relaxed text-lab-muted dark:text-titanium-dim md:text-sm">
-                {service.description}
-              </p>
+              <div className="flex items-start gap-3">
+                <service.icon
+                  className="mt-0.5 h-5 w-5 shrink-0 text-amber-highlight/85 transition group-hover:text-amber-glow"
+                  strokeWidth={1.25}
+                  aria-hidden
+                />
+                <h3 className="text-sm font-medium leading-snug text-lab-ink dark:text-titanium-bright">
+                  {service.title}
+                </h3>
+              </div>
             </motion.li>
           ))}
         </motion.ul>
+
+        <div className="mt-12 rounded-xl border border-zinc-200 bg-white/70 p-6 dark:border-titanium/10 dark:bg-obsidian-soft/50">
+          <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-lab-muted dark:text-titanium-dim/80">
+            Відповідність і стандарти
+          </p>
+          <div className="mt-4">
+            <ComplianceBadges />
+          </div>
+          <p className="mt-4 text-xs leading-relaxed text-lab-muted dark:text-titanium-dim">
+            Підхід і обладнання погоджуються з вимогами IPC. Деталі — на етапі NDA та технічного
+            аудиту.
+          </p>
+        </div>
       </div>
     </section>
   );

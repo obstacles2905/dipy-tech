@@ -1,20 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, PhoneForwarded, X } from "lucide-react";
+import { Menu, MessageCircle, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navItems = [
-  { href: "/#services", label: "Послуги" },
-  { href: "/#about", label: "Про нас" },
-  { href: "/#gallery", label: "Галерея" },
-  { href: "/#contact", label: "Контакти" },
+  { id: "services" as const, label: "Послуги" },
+  { id: "quality" as const, label: "Рівні" },
+  { id: "extra" as const, label: "Додатково" },
+  { id: "gallery" as const, label: "Галерея" },
+  { id: "contact" as const, label: "Контакти" },
 ] as const;
+
+function scrollToSection(sectionId: string) {
+  const el = document.getElementById(sectionId);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  if (window.location.hash !== `#${sectionId}`) {
+    window.history.replaceState(null, "", `/#${sectionId}`);
+  }
+}
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  const onHashLinkClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+      if (!isHome) return;
+      e.preventDefault();
+      scrollToSection(sectionId);
+    },
+    [isHome],
+  );
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/80 bg-white/85 backdrop-blur-xl dark:border-titanium/10 dark:bg-obsidian/80">
@@ -25,7 +48,7 @@ export function SiteHeader() {
         >
           <span className="h-2 w-2 shrink-0 rounded-full bg-amber-highlight/90 shadow-[0_0_12px_rgba(201,162,39,0.45)]" />
           <span className="truncate text-xs font-medium tracking-[0.22em] uppercase sm:text-sm">
-            ProfTechnology
+            DipyTech
           </span>
         </Link>
 
@@ -35,8 +58,10 @@ export function SiteHeader() {
         >
           {navItems.map((item) => (
             <Link
-              key={item.href}
-              href={item.href}
+              key={item.id}
+              href={`/#${item.id}`}
+              scroll={false}
+              onClick={(e) => onHashLinkClick(e, item.id)}
               className="text-xs font-medium tracking-[0.18em] text-lab-muted transition-colors hover:text-lab-ink dark:text-titanium-dim dark:hover:text-titanium-bright"
             >
               {item.label}
@@ -49,11 +74,14 @@ export function SiteHeader() {
 
           <Link
             href="/#contact"
+            scroll={false}
+            onClick={(e) => onHashLinkClick(e, "contact")}
+            aria-label="Перейти до контактів і форми: зворотний зв'язок DipyTech"
             className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/90 px-3 py-2 text-[10px] font-medium tracking-wide text-lab-ink shadow-sm transition hover:border-zinc-300 dark:border-titanium/20 dark:bg-obsidian-soft/90 dark:text-titanium-bright dark:hover:border-amber-highlight/40 sm:px-4 sm:text-xs"
           >
-            <PhoneForwarded className="h-3.5 w-3.5 text-amber-highlight" aria-hidden />
-            <span className="hidden sm:inline">Пряма лінія до адміністратора</span>
-            <span className="sm:hidden">Адміністратор</span>
+            <MessageCircle className="h-3.5 w-3.5 text-amber-highlight" aria-hidden />
+            <span className="hidden sm:inline">Зворотний зв&rsquo;язок</span>
+            <span className="sm:hidden">Зв&rsquo;язок</span>
           </Link>
 
           <button
@@ -82,10 +110,14 @@ export function SiteHeader() {
             <div className="flex flex-col gap-1 px-4 py-4">
               {navItems.map((item) => (
                 <Link
-                  key={item.href}
-                  href={item.href}
+                  key={item.id}
+                  href={`/#${item.id}`}
+                  scroll={false}
                   className="rounded-md px-3 py-3 text-sm font-medium tracking-[0.12em] text-lab-muted transition hover:bg-zinc-100 hover:text-lab-ink dark:text-titanium-dim dark:hover:bg-obsidian-muted dark:hover:text-titanium-bright"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(e) => {
+                    onHashLinkClick(e, item.id);
+                    setMenuOpen(false);
+                  }}
                 >
                   {item.label}
                 </Link>
