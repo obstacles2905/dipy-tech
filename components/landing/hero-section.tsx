@@ -25,7 +25,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="font-display max-w-xl text-4xl font-light leading-[1.08] tracking-tight text-lab-ink dark:text-titanium-bright md:text-5xl lg:text-6xl"
           >
-            Досконалість у збірці
+            Монтаж друкованих плат і збірка електроніки
           </motion.h1>
           <motion.p
             initial={false}
@@ -33,9 +33,9 @@ export function HeroSection() {
             transition={{ duration: 0.75, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-md text-sm leading-relaxed text-lab-muted dark:text-titanium-dim md:text-base"
           >
-            Преміальний сервіс ручного паяння та монтажу для проєктів, де важлива
-            кожна доріжка. Дискретність, стабільні терміни та рівень виконання,
-            який відчувається без пояснень.
+            SMD/THT монтаж, прототипи та малі партії для проєктів, де важлива
+            кожна доріжка. Дискретність, стабільні терміни та контроль якості
+            на кожному етапі виробництва електроніки.
           </motion.p>
           <motion.div
             initial={false}

@@ -13,12 +13,12 @@ import {
 import { ComplianceBadges } from "@/components/trust/compliance-badges";
 
 const services = [
-  { title: "SMD монтаж", icon: CircuitBoard },
-  { title: "Двосторонній монтаж", icon: Layers },
-  { title: "Комбінований монтаж (SMD + THT)", icon: Combine },
-  { title: "Відмивання плат", icon: Droplets },
-  { title: "Захисне покриття", icon: Shield },
-  { title: "Монтаж у корпус", icon: Box },
+  { title: "SMD монтаж друкованих плат", icon: CircuitBoard },
+  { title: "Двосторонній монтаж плат", icon: Layers },
+  { title: "Комбінований монтаж SMD + THT", icon: Combine },
+  { title: "Відмивання друкованих плат", icon: Droplets },
+  { title: "Захисне покриття електроніки", icon: Shield },
+  { title: "Монтаж плат у корпус", icon: Box },
   { title: "Кабельно-джгутова продукція", icon: Cable },
 ] as const;
 
@@ -47,11 +47,11 @@ export function ServicesSection() {
             Послуги
           </p>
           <h2 className="font-display mt-4 text-3xl font-light tracking-tight text-lab-ink dark:text-titanium-bright md:text-4xl">
-            Монтаж і супутні процеси
+            SMD/THT монтаж друкованих плат
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-lab-muted dark:text-titanium-dim md:text-base">
-            Збірка плат, захист, кабельна продукція та корпус — деталізацію погоджуйте
-            з адміністратором під конкретне ТЗ.
+            Збірка електроніки, захисне покриття, кабельна продукція та корпус —
+            деталізацію погоджуйте з адміністратором під конкретне ТЗ.
           </p>
         </div>
 

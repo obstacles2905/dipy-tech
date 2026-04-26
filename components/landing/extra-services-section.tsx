@@ -22,10 +22,11 @@ export function ExtraServicesSection() {
             Додаткові послуги
           </p>
           <h2 className="font-display mt-4 text-3xl font-light tracking-tight text-lab-ink dark:text-titanium-bright md:text-4xl">
-            Гнучкість під ваш цикл
+            Прототипи, малі партії та виробництво під ключ
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-lab-muted dark:text-titanium-dim md:text-base">
-            Окрім стандартного потоку — опції для прототипів, малих серій і термінових поставок.
+            Окрім стандартного потоку — опції для прототипів електроніки, малих серій
+            і термінових поставок.
           </p>
         </div>
 

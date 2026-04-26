@@ -15,7 +15,7 @@ export function SiteFooter() {
               Контакти
             </p>
             <h2 className="font-display mt-4 text-2xl font-light text-balance text-lab-ink dark:text-titanium-bright md:text-3xl">
-              Партнерські відносини понад разові угоди
+              Виробництво електроніки з партнерським супроводом
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-lab-muted dark:text-titanium-dim">
               Ми орієнтовані на довгострокову співпрацю: передбачуваність процесів,

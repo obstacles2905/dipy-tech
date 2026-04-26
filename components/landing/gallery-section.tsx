@@ -23,11 +23,11 @@ export function GallerySection() {
             Галерея
           </p>
           <h2 className="font-display mt-4 text-3xl font-light tracking-tight text-lab-ink dark:text-titanium-bright md:text-4xl">
-            Макрозйомка як стандарт презентації
+            Макрозйомка монтажу друкованих плат
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-lab-muted dark:text-titanium-dim md:text-base">
-            Плейсхолдери під високороздільну зйомку: ювелірна акуратність паяння та
-            дисципліна монтажу.
+            Плейсхолдери під високороздільну зйомку: ювелірна акуратність паяння,
+            контроль дрібного кроку та дисципліна монтажу.
           </p>
         </div>
 

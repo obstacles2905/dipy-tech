@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 
 const tiers = [
   {
-    name: "Standard",
+    name: "Standard монтаж плат",
     featured: false,
     items: [
       "Монтаж SMD/THT",
@@ -14,7 +14,7 @@ const tiers = [
     ] as const,
   },
   {
-    name: "Pro",
+    name: "Pro виробництво електроніки",
     featured: true,
     items: [
       "Монтаж",
@@ -24,7 +24,7 @@ const tiers = [
     ] as const,
   },
   {
-    name: "Premium",
+    name: "Premium контроль якості",
     featured: false,
     items: [
       "Повний контроль якості",
@@ -60,7 +60,7 @@ export function QualityTiersSection() {
             Рівні якості
           </p>
           <h2 className="font-display mt-4 text-3xl font-light tracking-tight text-lab-ink dark:text-titanium-bright md:text-4xl">
-            Стандарт, Pro чи Premium
+            Контроль якості виробництва електроніки
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-lab-muted dark:text-titanium-dim md:text-base">
             Оберіть глибину контролю та супроводу під конкретний реліз — від базової збірки до
@@ -87,9 +87,9 @@ export function QualityTiersSection() {
                     : "border border-zinc-200 bg-white/80 dark:border-titanium/10 dark:bg-obsidian-soft/60"
                 }`}
               >
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-amber-highlight/90">
+                <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-amber-highlight/90">
                   {tier.name}
-                </p>
+                </h3>
                 {isPro ? (
                   <div className="mb-1 mt-2 flex flex-col gap-1.5">
                     <p className="inline-flex w-fit items-center rounded-full border border-amber-highlight/50 bg-amber-highlight/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-900 dark:border-amber-highlight/50 dark:bg-amber-highlight/15 dark:text-amber-200">
