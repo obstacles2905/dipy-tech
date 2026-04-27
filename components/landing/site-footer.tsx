@@ -39,9 +39,9 @@ export function SiteFooter() {
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-amber-highlight" aria-hidden />
               <span>
                 <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-400 dark:text-titanium-dim/80">
-                  Локація виробництва
+                  Локація
                 </span>
-                Україна · за узгодженням — зустріч або відвантаження
+                Україна, м. Дніпро - зустріч або відвантаження
               </span>
             </div>
             <div>

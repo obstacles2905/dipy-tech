@@ -1,3 +1,5 @@
 User-Agent: *
 Allow: /
 Disallow: /api/
+
+Sitemap: https://dipytech.com.ua/sitemap.xml

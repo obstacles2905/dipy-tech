@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 
 const tiers = [
   {
-    name: "Standard монтаж плат",
+    name: "Standard монтаж друкованих плат",
     featured: false,
     items: [
       "Монтаж SMD/THT",
@@ -14,12 +14,12 @@ const tiers = [
     ] as const,
   },
   {
-    name: "Pro виробництво електроніки",
+    name: "Pro монтаж друкованих плат",
     featured: true,
     items: [
       "Монтаж",
       "Контроль під збільшенням",
-      "Макро-фото",
+      "Паспорт якості",
       "Контроль за IPC",
     ] as const,
   },
@@ -29,8 +29,16 @@ const tiers = [
     items: [
       "Повний контроль якості",
       "Паспорт якості",
-      "Макро-фото та відео",
+      "Лакування поверхні",
       "Пріоритет",
+    ] as const,
+  },
+  {
+    name: "Express",
+    featured: false,
+    items: [
+      "Пріоритет",
+      "Візуальний контроль якості",
     ] as const,
   },
 ] as const;
@@ -73,7 +81,7 @@ export function QualityTiersSection() {
           initial={false}
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
-          className="mt-12 grid gap-5 lg:grid-cols-3 lg:items-stretch"
+          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:items-stretch"
         >
           {tiers.map((tier) => {
             const isPro = tier.featured;

@@ -25,6 +25,14 @@ function scrollToSection(sectionId: string) {
   }
 }
 
+function scrollToPageTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  if (window.location.pathname !== "/" || window.location.hash) {
+    window.history.replaceState(null, "", "/");
+  }
+}
+
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -44,6 +52,12 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
         <Link
           href="/"
+          scroll={false}
+          onClick={(e) => {
+            if (!isHome) return;
+            e.preventDefault();
+            scrollToPageTop();
+          }}
           className="group flex min-w-0 shrink items-center gap-2 text-lab-ink transition-colors hover:text-zinc-600 dark:text-titanium-bright dark:hover:text-titanium"
         >
           <span className="h-2 w-2 shrink-0 rounded-full bg-amber-highlight/90 shadow-[0_0_12px_rgba(201,162,39,0.45)]" />

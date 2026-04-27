@@ -13,6 +13,7 @@ const tiers = [
   { value: "standard", label: "Standard" },
   { value: "pro", label: "Pro" },
   { value: "premium", label: "Premium" },
+  { value: "express", label: "Express" },
 ] as const;
 
 const fieldClass =
@@ -75,9 +76,7 @@ export function QuoteForm() {
         Безкоштовна консультація та прорахунок
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-lab-muted dark:text-titanium-dim">
-        Можна додати до 4 фотографій (JPEG, PNG, WebP) — вони надійдуть у чат зі заявкою в
-        Telegram, максимум 1,5 МБ кожна. Скріншоти та важкі згорнуті файли — у тексті
-        додайте посилання.
+        Можна додати до 4 фотографій (JPEG, PNG, WebP) — до 1,5 МБ кожна.
       </p>
       <form className="mt-8 space-y-5" onSubmit={onSubmit}>
         <div>

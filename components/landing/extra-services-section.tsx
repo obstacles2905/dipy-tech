@@ -7,7 +7,7 @@ const extras = [
   { label: "Термінові замовлення (24–48 год)", icon: Zap },
   { label: "Прототипи від 1 плати", icon: Cpu },
   { label: "Малі партії", icon: BoxSelect },
-  { label: "Під ключ", icon: KeyRound },
+  { label: "Під ключ (Пайка, збірка у корпус)", icon: KeyRound },
 ] as const;
 
 export function ExtraServicesSection() {
