@@ -8,8 +8,6 @@ import Image from "next/image";
 
 /** Імена файлів у `public/img` — підпис = назва файлу без розширення. */
 const GALLERY_IMAGES = [
-  { file: "Комбінований монтаж. Робота До.PNG", tilt: "rotate-0" },
-  { file: "Комбінований монтаж. Робота Після.PNG", tilt: "-rotate-1" },
   { file: "Чиста пайка по світовим стандартам.PNG", tilt: "-rotate-1" },
   { file: "Пайка розʼємів.PNG", tilt: "rotate-1" },
   { file: "Точність у деталях. Пайка вивідних роʼємів.PNG", tilt: "rotate-0" },
